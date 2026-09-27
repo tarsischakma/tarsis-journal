@@ -1,0 +1,682 @@
+/* ================================
+   TARSIS — PERSONAL JOURNAL
+   DARK CINEMATIC DESIGN
+   ================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0a0a0a;
+    color: #eeeae2;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.6;
+}
+
+/* Subtle film grain */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.035;
+
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ================================
+   NAVIGATION
+   ================================ */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 28px 6vw;
+
+    z-index: 50;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 10, 0.95),
+        transparent
+    );
+}
+
+.logo {
+    color: #eeeae2;
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 32px;
+}
+
+.navbar nav a {
+    color: #aaa59d;
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+
+    transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: #eeeae2;
+}
+
+/* ================================
+   HERO
+   ================================ */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 12vw 8vw;
+}
+
+.eyebrow {
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+    letter-spacing: 0.22em;
+
+    color: #77736d;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(4.5rem, 13vw, 12rem);
+
+    font-weight: 400;
+
+    letter-spacing: -0.075em;
+
+    line-height: 0.82;
+
+    max-width: 1100px;
+}
+
+.intro {
+    max-width: 430px;
+
+    margin-top: 55px;
+
+    color: #96918a;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+.enter {
+    display: inline-block;
+
+    margin-top: 55px;
+
+    width: fit-content;
+
+    color: #eeeae2;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.18em;
+
+    border-bottom: 1px solid #55514b;
+
+    padding-bottom: 8px;
+
+    transition: border-color 0.3s ease;
+}
+
+.enter:hover {
+    border-color: #eeeae2;
+}
+
+/* ================================
+   SECTIONS
+   ================================ */
+
+.section {
+    padding: 150px 8vw;
+
+    border-top: 1px solid #22211f;
+}
+
+.section-heading {
+    display: flex;
+    align-items: baseline;
+
+    gap: 25px;
+
+    margin-bottom: 70px;
+}
+
+.section-heading span {
+    font-family: Arial, sans-serif;
+
+    color: #55514b;
+
+    font-size: 11px;
+    letter-spacing: 0.15em;
+}
+
+.section-heading h2 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+
+    font-weight: 400;
+
+    letter-spacing: -0.05em;
+}
+
+/* ================================
+   JOURNAL CARD
+   ================================ */
+
+.journal-card {
+    max-width: 850px;
+
+    margin-left: 10%;
+
+    padding: 55px 0;
+
+    border-top: 1px solid #34322f;
+    border-bottom: 1px solid #34322f;
+}
+
+.date {
+    font-family: Arial, sans-serif;
+
+    color: #68645e;
+
+    font-size: 10px;
+
+    letter-spacing: 0.18em;
+}
+
+.journal-card h3 {
+    margin-top: 25px;
+
+    font-size: clamp(2rem, 4vw, 4rem);
+
+    font-weight: 400;
+
+    letter-spacing: -0.04em;
+}
+
+.journal-card > p:not(.date) {
+    max-width: 600px;
+
+    margin-top: 25px;
+
+    color: #99948c;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+.journal-card a {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    color: #eeeae2;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.15em;
+}
+
+/* ================================
+   MOMENTS
+   ================================ */
+
+.section-text {
+    max-width: 600px;
+
+    margin-left: 10%;
+
+    color: #99948c;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+}
+
+/* ================================
+   ABOUT
+   ================================ */
+
+.about {
+    min-height: 70vh;
+}
+
+.about-text {
+    max-width: 750px;
+
+    margin-left: 10%;
+
+    font-size: clamp(2rem, 4vw, 4rem);
+
+    line-height: 1.25;
+
+    letter-spacing: -0.04em;
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+
+footer {
+    padding: 50px 8vw;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-top: 1px solid #22211f;
+
+    color: #55514b;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+/* ================================
+   MOBILE
+   ================================ */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 22px 6vw;
+    }
+
+    .navbar nav {
+        gap: 16px;
+    }
+
+    .navbar nav a {
+        font-size: 9px;
+    }
+
+    .hero {
+        padding: 30vw 7vw 15vw;
+    }
+
+    .hero h1 {
+        font-size: clamp(4rem, 18vw, 7rem);
+    }
+
+    .intro {
+        font-size: 16px;
+        margin-top: 40px;
+    }
+
+    .section {
+        padding: 100px 7vw;
+    }
+
+    .section-heading {
+        margin-bottom: 50px;
+    }
+
+    .journal-card,
+    .section-text,
+    .about-text {
+        margin-left: 0;
+    }
+
+    .journal-card h3 {
+        font-size: 2.4rem;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* ================================
+   JOURNAL PAGE
+   ================================ */
+
+.journal-page {
+    padding: 180px 8vw 100px;
+}
+
+/* Journal title */
+
+.journal-header {
+    max-width: 1000px;
+    margin-bottom: 140px;
+}
+
+.journal-header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(4rem, 11vw, 10rem);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.07em;
+}
+
+.journal-subtitle {
+    max-width: 550px;
+    margin-top: 50px;
+    color: #85817a;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+/* Journal writing */
+
+.journal-content {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.journal-content p {
+    margin-bottom: 42px;
+    color: #c1bdb5;
+    font-size: 20px;
+    line-height: 2;
+}
+
+.journal-content p:first-child {
+    font-size: 25px;
+    color: #eeeae2;
+}
+
+.journal-content p:nth-child(2),
+.journal-content p:nth-child(4),
+.journal-content p:nth-child(5),
+.journal-content p:nth-child(8),
+.journal-content p:nth-child(10),
+.journal-content p:nth-child(13),
+.journal-content p:nth-child(16),
+.journal-content p:nth-child(20),
+.journal-content p:nth-child(23),
+.journal-content p:nth-child(28),
+.journal-content p:nth-child(31) {
+    color: #eeeae2;
+    font-size: 27px;
+    line-height: 1.5;
+}
+
+/* Ending */
+
+.journal-ending {
+    margin-top: 120px;
+    padding-top: 60px;
+    border-top: 1px solid #2c2b29;
+    text-align: center;
+}
+
+.journal-ending p {
+    color: #eeeae2;
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    line-height: 1.35;
+}
+
+.journal-ending span {
+    display: block;
+    margin-top: 35px;
+    color: #77736d;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* Back button */
+
+.journal-back {
+    max-width: 720px;
+    margin: 130px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid #2c2b29;
+}
+
+.journal-back a {
+    color: #aaa59d;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.journal-back a:hover {
+    color: #eeeae2;
+}
+
+/* Mobile journal */
+
+@media (max-width: 700px) {
+
+    .journal-page {
+        padding: 140px 7vw 80px;
+    }
+
+    .journal-header {
+        margin-bottom: 90px;
+    }
+
+    .journal-header h1 {
+        font-size: clamp(4rem, 18vw, 7rem);
+    }
+
+    .journal-subtitle {
+        font-size: 16px;
+        margin-top: 35px;
+    }
+
+    .journal-content p {
+        font-size: 17px;
+        line-height: 1.9;
+        margin-bottom: 35px;
+    }
+
+    .journal-content p:first-child {
+        font-size: 21px;
+    }
+
+    .journal-content p:nth-child(2),
+    .journal-content p:nth-child(4),
+    .journal-content p:nth-child(5),
+    .journal-content p:nth-child(8),
+    .journal-content p:nth-child(10),
+    .journal-content p:nth-child(13),
+    .journal-content p:nth-child(16),
+    .journal-content p:nth-child(20),
+    .journal-content p:nth-child(23),
+    .journal-content p:nth-child(28),
+    .journal-content p:nth-child(31) {
+        font-size: 22px;
+    }
+}
+
+/* =========================================
+   JOURNAL ARCHIVE
+   ========================================= */
+
+.journal-archive {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: #292825;
+}
+
+.journal-card {
+    background: #11110f;
+    padding: 55px 45px;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.journal-card:hover {
+    background: #171714;
+    transform: translateY(-4px);
+}
+
+.journal-card .date {
+    color: #77736d;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.journal-card h2 {
+    margin: 45px 0 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.journal-card p:not(.date) {
+    color: #918d85;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 500px;
+}
+
+.journal-card a {
+    display: inline-block;
+    margin-top: 40px;
+    color: #eeeae2;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.journal-card a:hover {
+    opacity: 0.6;
+}
+
+
+/* =========================================
+   JOURNAL ARCHIVE MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .journal-archive {
+        grid-template-columns: 1fr;
+    }
+
+    .journal-card {
+        min-height: 320px;
+        padding: 40px 30px;
+    }
+
+    .journal-card h2 {
+        margin-top: 35px;
+        font-size: 2.4rem;
+    }
+
+}
+
+/* Moments cards */
+.moments-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.moment-card {
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.03);
+    overflow: hidden;
+}
+
+.moment-image {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.moment-content {
+    padding: 22px;
+}
+
+.moment-content .date {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    opacity: 0.6;
+}
+
+.moment-content h3 {
+    margin: 10px 0;
+}
+
+.moment-content p {
+    line-height: 1.7;
+    opacity: 0.75;
+}
+
+@media (max-width: 700px) {
+    .moments-grid {
+        grid-template-columns: 1fr;
+    }
+}
